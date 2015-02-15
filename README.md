@@ -8,6 +8,12 @@ This filter logs the SecureSocial user name in the third field if the user is lo
 127.0.0.1 - - 2015-02-14T15:56:39.675-08:00 "POST /authenticate/userpass 33 HTTP/1.1" 303 33 http://localhost:9000/login "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/40.0.2214.111 Chrome/40.0.2214.111 Safari/537.36" 988 126 1555
 127.0.0.1 - mslinn 2015-02-14T15:56:40.668-08:00 "GET /courses/admin/show/40 - HTTP/1.1" 200 - http://localhost:9000/login "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/40.0.2214.111 Chrome/40.0.2214.111 Safari/537.36" 12750 425 1256
 ````
+## Installation ##
+Add this to your project's `build.sbt`:
+
+    resolvers += "micronautics/play on bintray" at "http://dl.bintray.com/micronautics/play"
+
+    libraryDependencies += "com.micronautics" %% "playAccessLogger" % "1.0.0" withSources()
 
 Here is a sample `app/Global.scala` showing how to set up the logger.
 ````
