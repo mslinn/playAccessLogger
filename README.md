@@ -1,5 +1,7 @@
 # Play 2 Access Logger #
 
+![play-access-logger logo](http://d357e4bjq673rk.cloudfront.net/1/html/ScalaCore/assets/images/play-access-log.png "play-access-logger Logo")
+
 This project is sponsored by [Micronautics Research Corporation](http://www.micronauticsresearch.com/),
 the company that delivers online Scala and Play training via [ScalaCourses.com](http://ScalaCourses.com).
 You can learn exactly how this filter works by taking the [Introduction to Scala](http://localhost:9000/showCourse/40),
