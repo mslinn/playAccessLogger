@@ -91,7 +91,7 @@ object Global extends WithFilters(playAccessLogger, new GzipFilter) with GlobalS
 
   override def onStop(app: Application): Unit = {
     try {
-      X. playAccessLogger.stop()
+      X.playAccessLogger.stop()
     } catch {
       case e: Exception => Logger.warn(s"${e.getName.getClass} ${e.getMessage}")
     }
