@@ -73,7 +73,7 @@ this example shows `GzipFilter` being used to compress each response.
 
 ````
 import com.micronautics.playFilters.PlayAccessLogger
-import play.api.{Application, GlobalSettings }
+import play.api.{ Application, GlobalSettings }
 import play.api.mvc._
 import play.api.libs.concurrent.Execution.Implicits._
 import play.api.Logger
