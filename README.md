@@ -81,7 +81,8 @@ import play.filters.gzip.GzipFilter
 import securesocial.core.SecureSocial
 
 object X {
-  val ssUserId: RequestHeader => Option[String] = SecureSocial.currentUser(_: RequestHeader).map(_.identityId.userId)
+  val ssUserId: RequestHeader => Option[String] = 
+    SecureSocial.currentUser(_: RequestHeader).map(_.identityId.userId)
   val playAccessLogger = new PlayAccessLogger("/var/log/cadenza/access.log", prefix)(ssUserId)
 }
 
