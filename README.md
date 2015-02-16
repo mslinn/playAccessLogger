@@ -87,7 +87,7 @@ object X {
   val playAccessLogger = new PlayAccessLogger("/var/log/cadenza/access.log", prefix)(ssUserId)
 }
 
-object Global extends WithFilters(playAccessLogger, new GzipFilter) with GlobalSettings {
+object Global extends WithFilters(X.playAccessLogger, new GzipFilter) with GlobalSettings {
   override def onStart(app: Application) = X.playAccessLogger.start()
 
   override def onStop(app: Application): Unit = {
