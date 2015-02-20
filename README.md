@@ -34,7 +34,7 @@ Add `playAccessLogger` to your project's `build.sbt`:
 
     resolvers += "micronautics/play on bintray" at "http://dl.bintray.com/micronautics/play"
 
-    libraryDependencies += "com.micronautics" %% "playAccessLogger" % "1.1.0" withSources()
+    libraryDependencies += "com.micronautics" %% "playAccessLogger" % "1.1.1" withSources()
 
 ## Usage ##
 Include a `PlayAccessLogger` instance into your Play application's list of filters.
@@ -82,7 +82,7 @@ import securesocial.core.SecureSocial
 
 object X {
   val prefix = "Cadenza v0.1.5"
-  val ssUserId: RequestHeader => Option[String] = 
+  val ssUserId: RequestHeader => Option[String] =
     SecureSocial.currentUser(_: RequestHeader).map(_.identityId.userId)
   val playAccessLogger = new PlayAccessLogger("/var/log/cadenza/access.log", prefix)(ssUserId)
 }

@@ -27,7 +27,17 @@ class PlayAccessLogger(logDirectoryName: String="", signOnPrefix: String="Play a
     implicit val rh = request
     val startTime = System.currentTimeMillis
     nextFilter(request).map { result =>
-      val remoteIpAddress = request.remoteAddress
+      val remoteIpAddress: String = {
+        // see http://johannburkard.de/blog/programming/java/x-forwarded-for-http-header.html
+        val result = request.headers.get("X-Forwarded-For").map(_.split(",").head).getOrElse(
+                       request.headers.get("Remote_Addr").getOrElse(
+                         request.remoteAddress))
+        Logger.debug(s"""request.headers.get("X-Forwarded-For")=${request.headers.get("X-Forwarded-For")}
+                        |request.headers.get("Remote_Addr")=${request.headers.get("Remote_Addr")}
+                        |request.remoteAddress=${request.remoteAddress}
+                        |result=$result""".stripMargin)
+        result
+      }
       val userName = lookupUserId(rh).getOrElse(request.headers.get("REMOTE_USER").getOrElse("-"))
 
       val endTime = System.currentTimeMillis
