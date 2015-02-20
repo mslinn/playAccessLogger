@@ -2,14 +2,14 @@
 
 ![play-access-logger logo](http://d357e4bjq673rk.cloudfront.net/1/html/ScalaCore/assets/images/play-access-log.png "play-access-logger Logo")
 
-Play Framework does not provide a facility for generating access logs, so you cannot monitor user activity. If Play is front-ended with nginx or Apache httpd, the generated logs by the front end process does not contain user ids, which makes it difficult to track user activity. Play 2 Access Logger solves these problems.
+Play Framework does not provide a facility for generating access logs, so you cannot monitor user activity. If Play is front-ended with nginx or Apache httpd, the generated logs by the front end process does not contain user ids, which makes it difficult to track user activity. `play-access-logger` solves these problems.
 
 This project is sponsored by [Micronautics Research Corporation](http://www.micronauticsresearch.com/),
 the company that delivers online Scala and Play training via [ScalaCourses.com](http://www.ScalaCourses.com).
 You can learn exactly how this filter works by taking the [Introduction to Scala](http://www.ScalaCourses.com/showCourse/40),
 [Intermediate Scala](http://www.ScalaCourses.com/showCourse/45) and [Introduction to Play](http://www.ScalaCourses.com/showCourse/39) courses.
 
-`playAccessLogger` generates access logs for Play 2 applications in an enhanced
+`play-access-logger` generates access logs for Play 2 applications in an enhanced
 [Apache httpd combined log format](http://httpd.apache.org/docs/2.2/logs.html#combined).
 The following fields are added to each log entry:
  1. Elapsed time for each request (in milliseconds)
@@ -34,11 +34,11 @@ The correct binary version of the project is automatically selected based on the
 The combination of Scala 2.10 with Play 2.3 is not supported.
 Versions of Play 2 older than Play 2.2 may work but have not been tested.
 
-Add `playAccessLogger` to your project's `build.sbt`:
+Add `play-access-logger` to your project's `build.sbt`:
 
     resolvers += "micronautics/play on bintray" at "http://dl.bintray.com/micronautics/play"
 
-    libraryDependencies += "com.micronautics" %% "playAccessLogger" % "1.1.1" withSources()
+    libraryDependencies +=  "com.micronautics" %% "play-access-logger" % "1.1.1" withSources()
 
 ## Usage ##
 Include a `PlayAccessLogger` instance into your Play application's list of filters.
@@ -47,11 +47,11 @@ That directory will be created if required.
 If it cannot be created or cannot be written to or is not specified, the Play application's current directory is tried next,
 and if that fails the Play application's `user.home` is tried before giving up.
 
-If you want `playAccessLogger` to sign on with a message like the following, call `playAccessLogger.start()` from `Global.onStart`:
+If you want `play-access-logger` to sign on with a message like the following, call `playAccessLogger.start()` from `Global.onStart`:
 
     Play application started 2015-02-14T15:56:18.566-08:00
 
-If you want `playAccessLogger` to sign off with a message like the following, call `playAccessLogger.stop()` from `Global.onStop`:
+If you want `play-access-logger` to sign off with a message like the following, call `playAccessLogger.stop()` from `Global.onStop`:
 
     Play application shut down 2015-02-14T16:12:11.423-08:00
 
@@ -103,3 +103,11 @@ object Global extends WithFilters(X.playAccessLogger, new GzipFilter) with Globa
   }
 }
 ````
+
+## Revision History ##
+
+Version  | Change
+------------- | -------------
+1.1.1  | Added proxy support, successfully tested on Heroku
+1.1.0  | Removed dependency on [SecureSocial](http://securesocial.ws/), now supports any authentication mechanism; documented how to integrate with `SecureSocial`
+1.0.0  | Hived from [Cadenza](http://www.micronauticsresearch.com/products/cadenza/index.html), which powers [ScalaCourses.com](http://ScalaCourses.com)
