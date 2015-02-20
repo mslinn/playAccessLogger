@@ -2,6 +2,8 @@
 
 ![play-access-logger logo](http://d357e4bjq673rk.cloudfront.net/1/html/ScalaCore/assets/images/play-access-log.png "play-access-logger Logo")
 
+Play Framework does not provide a facility for generating access logs, so you cannot monitor user activity. If Play is front-ended with nginx or Apache httpd, the generated logs by the front end process does not contain user ids, which makes it difficult to track user activity. Play 2 Access Logger solves these problems.
+
 This project is sponsored by [Micronautics Research Corporation](http://www.micronauticsresearch.com/),
 the company that delivers online Scala and Play training via [ScalaCourses.com](http://www.ScalaCourses.com).
 You can learn exactly how this filter works by taking the [Introduction to Scala](http://www.ScalaCourses.com/showCourse/40),
