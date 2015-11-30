@@ -38,7 +38,7 @@ Add `play-access-logger` to your project's `build.sbt`:
 
     resolvers += "micronautics/play on bintray" at "http://dl.bintray.com/micronautics/play"
 
-    libraryDependencies +=  "com.micronautics" %% "play-access-logger" % "1.1." withSources()
+    libraryDependencies +=  "com.micronautics" %% "play-access-logger" % "1.1.3" withSources()
 
 ## Usage ##
 Include a `PlayAccessLogger` instance into your Play application's list of filters.

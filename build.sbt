@@ -1,6 +1,6 @@
 name := """play-access-logger"""
 organization := "com.micronautics"
-version := "1.1.2"
+version := "1.1.3"
 licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
 
 scalaVersion := "2.10.6"

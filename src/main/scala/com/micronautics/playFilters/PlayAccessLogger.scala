@@ -127,12 +127,12 @@ class PlayAccessLogger(logDirectoryName: String="", signOnPrefix: String="Play a
 
   /** Invoke this method from Play's `Global.onStart` method if you would like `PlayAccessLogger` to generate a sign-on
     * message when the Play application starts */
-  def start() = log(s"\n\n$signOnPrefix started ${fmt.print(System.currentTimeMillis)}")
+  def start() = Logger.info(s"$signOnPrefix started ${fmt.print(System.currentTimeMillis)}")
 
   /** Invoke this method from Play's ``Global.onStop` method if you would like `PlayAccessLogger` to generate a sign-off
     * message when the Play application stops under controlled circumstances */
   def stop() = {
-    log(s"$signOnPrefix shut down ${fmt.print(System.currentTimeMillis)}")
+    Logger.info(s"$signOnPrefix shut down ${fmt.print(System.currentTimeMillis)}")
     maybeFw.foreach(_.close())
   }
 }
