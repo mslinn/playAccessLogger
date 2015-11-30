@@ -110,6 +110,8 @@ object Global extends WithFilters(X.playAccessLogger, new GzipFilter) with Globa
 
 Version  | Change
 ------------- | -------------
+1.1.3  | Now writes signon message to Logger, not access.log
+1.1.2  | Updated dependencies, now creates access.log if necessary
 1.1.1  | Added proxy support, successfully tested on Heroku
 1.1.0  | Removed dependency on [SecureSocial](http://securesocial.ws/), now supports any authentication mechanism; documented how to integrate with `SecureSocial`
 1.0.0  | Hived from [Cadenza](http://www.micronauticsresearch.com/products/cadenza/index.html), which powers [ScalaCourses.com](http://ScalaCourses.com)
