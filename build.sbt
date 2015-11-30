@@ -1,12 +1,10 @@
-import bintray.Keys._
-
 name := """play-access-logger"""
 organization := "com.micronautics"
-version := "1.1.1"
+version := "1.1.2"
 licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
 
-scalaVersion := "2.10.4"
-crossScalaVersions := Seq("2.10.4", "2.11.5")
+scalaVersion := "2.10.6"
+crossScalaVersions := Seq("2.10.6", "2.11.7")
 
 scalacOptions ++= Seq("-deprecation", "-encoding", "UTF-8", "-feature", "-target:jvm-1.7", "-unchecked",
     "-Ywarn-adapted-args", "-Ywarn-value-discard", "-Xlint")
@@ -40,9 +38,7 @@ libraryDependencies <++= scalaVersion {
     )
 }
 
-bintrayPublishSettings
-bintrayOrganization in bintray := Some("micronautics")
-repository in bintray := "play"
+bintrayOrganization := Some("micronautics")
+bintrayRepository := "play"
 
 publishArtifact in Test := false
-
