@@ -102,18 +102,26 @@ class PlayAccessLogger(logDirectoryName: String="", signOnPrefix: String="Play a
         }
       } catch {
         case e: Exception =>
-          Logger.warn(s"Could not create ${logDirFile.getAbsolutePath}; ${e.getClass.getName}: ${e.getMessage}")
+          Logger.warn(s"Cannot create ${logDirFile.getAbsolutePath}; ${e.getClass.getName}: ${e.getMessage}")
           None
       }
     }
     val logDir: File = maybeUserLogDir.getOrElse(maybeDirectory(".").getOrElse(new File(System.getProperty("user.home"))))
     val logFile = new File(logDir, "access.log")
-    if (logFile.canWrite) {
-      Logger.info(s"Writing to ${logFile.getAbsolutePath}")
-      Some(new FileWriter(logFile, true))
-    } else {
-      Logger.info("Cannot write access logs to any directory that was tried.")
-      None
+    try {
+      if (!logFile.exists)
+        logFile.createNewFile()
+      if (logFile.canWrite) {
+        Logger.info(s"Writing to ${logFile.getAbsolutePath}")
+        Some(new FileWriter(logFile, true))
+      } else {
+        Logger.info(s"Cannot write ${logFile.getAbsolutePath}")
+        None
+      }
+    } catch {
+      case e: Exception =>
+        Logger.info(s"Cannot create $logDir.")
+        None
     }
   }
 
