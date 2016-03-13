@@ -4,7 +4,7 @@ version := "1.1.3"
 licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
 
 scalaVersion := "2.10.6"
-crossScalaVersions := Seq("2.10.6", "2.11.7")
+crossScalaVersions := Seq("2.10.6", "2.11.8")
 
 scalacOptions ++= Seq("-deprecation", "-encoding", "UTF-8", "-feature", "-target:jvm-1.7", "-unchecked",
     "-Ywarn-adapted-args", "-Ywarn-value-discard", "-Xlint")
@@ -17,7 +17,7 @@ scalacOptions in (Compile, doc) <++= baseDirectory.map {
 }
 
 resolvers ++= Seq(
-  "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases"
+  "Lightbend Releases" at "http://repo.typesafe.com/typesafe/releases"
 )
 
 libraryDependencies <++= scalaVersion {
