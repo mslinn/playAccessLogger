@@ -1,4 +1,6 @@
-# Play 2 Access Logger #
+# Play 2 Access Logger
+
+ [ ![Download](https://api.bintray.com/packages/micronautics/play/play-access-logger/images/download.svg) ](https://bintray.com/micronautics/play/play-access-logger/_latestVersion)
 
 ![play-access-logger logo](http://d357e4bjq673rk.cloudfront.net/1/html/ScalaCore/assets/images/play-access-log.png "play-access-logger Logo")
 
