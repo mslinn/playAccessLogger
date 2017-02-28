@@ -37,7 +37,7 @@ Cadenza v0.1.5 build 1381 started 2015-02-14T13:32:25.825-08:00
 This project is built against the following combinations of Scala and Play:
  - Scala 2.12 / Play 2.6.0-M1
  - Scala 2.11 / Play 2.3.8
- - Scala 2.10 / Play 2.2.6
+ - Scala 2.10 / Play 2.2.6 (v1.1.3, no further updates)
  
 The correct version of the project is selected based on the Scala compiler version.
 Other combinations of Scala and Play are not supported.
