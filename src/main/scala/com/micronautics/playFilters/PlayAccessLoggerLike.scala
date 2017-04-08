@@ -3,7 +3,7 @@ package com.micronautics.playFilters
 import java.io.{File, FileWriter}
 import com.micronautics.playFilters.PlayAccessLoggerLike.{Logger, fmt, runtime, totalMem}
 import org.joda.time.format.{DateTimeFormatter, ISODateTimeFormat}
-import play.api.mvc.{RequestHeader, Result}
+import play.api.mvc.{Filter, RequestHeader, Result}
 import scala.concurrent.{ExecutionContext, Future}
 
 object PlayAccessLoggerLike {
@@ -13,7 +13,7 @@ object PlayAccessLoggerLike {
   val Logger: org.slf4j.Logger = org.slf4j.LoggerFactory.getLogger("playAccessLogger")
 }
 
-trait PlayAccessLoggerLike {
+trait PlayAccessLoggerLike extends Filter {
   def logDirectoryName: String = ""
   def signOnPrefix: String = "Play application"
   implicit val ec: ExecutionContext
