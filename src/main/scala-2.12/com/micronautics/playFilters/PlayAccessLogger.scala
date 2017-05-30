@@ -17,8 +17,8 @@ import scala.concurrent.ExecutionContext
   * @param signOnPrefix defaults to `Play application` but you could provide the name of your application, with version and build number, etc if you like
   * @param lookupUserId is a `Function1` that accepts a `RequestHeader` and returns an `Option[String]` which optionally contains the user id of authenticated users */
 class PlayAccessLogger(
-  logDirectoryName: String="",
-  signOnPrefix: String="Play application"
+  logDirectoryName: String = "",
+  signOnPrefix: String = "Play application"
 )(
   val lookupUserId: RequestHeader => Option[String]
 )(implicit

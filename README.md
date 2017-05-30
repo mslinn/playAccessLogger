@@ -35,8 +35,8 @@ Cadenza v0.1.5 build 1381 started 2015-02-14T13:32:25.825-08:00
 
 ## Installation
 This project is built against the following combinations of Scala and Play:
- - Scala 2.12 / Play 2.6.0-M1
- - Scala 2.11 / Play 2.3.8
+ - Scala 2.12 / Play 2.6.0-RC1
+ - Scala 2.11 / Play 2.5.14
  - Scala 2.10 / Play 2.2.6 (v1.1.3, no further updates)
  
 The correct version of the project is selected based on the Scala compiler version.
@@ -47,7 +47,7 @@ Add `play-access-logger` to your project's `build.sbt`:
 
     resolvers += "micronautics/play on bintray" at "http://dl.bintray.com/micronautics/play"
 
-    libraryDependencies +=  "com.micronautics" %% "play-access-logger" % "1.2.0" withSources()
+    libraryDependencies +=  "com.micronautics" %% "play-access-logger" % "1.2.2" withSources()
 
 ## Usage
 Include a `PlayAccessLogger` instance into your Play application's list of filters.
@@ -77,15 +77,16 @@ import play.api.mvc._
 object Global extends WithFilters(new PlayAccessLogger())
 ````
 
-### Example of SecureSocial Authentication and Co-operation with Another Filter
-SecureSocial has not progressed beyond Play 2.3.x.
+### Example of Co-operation with Another Filter
 You can use any userId mechanism you like in order to include user ids in the access log.
-To do this, provide a `Function1` that accepts a `RequestHeader` and returns an `Option[String]` to the second parameter list of the `PlayAccessLogger` constructor.
+To do this, provide a `Function1` that accepts a `RequestHeader` and returns an `Option[String]` to the second parameter 
+list of the `PlayAccessLogger` constructor.
 
-Here is a sample `app/Global.scala` showing how to set up the logger, using [SecureSocial](http://securesocial.ws/) for authentication.
+Here is a sample `app/Global.scala` showing how to set up the logger, using the obsolete [SecureSocial](http://securesocial.ws/) 
+package for authentication.
 `SecureSocial` must be integrated and configured as usual; see that projects' documentation for further information.
 `playAccessLogger` can be chained with other Play filters as per the
-[Play documentation](https://www.playframework.com/documentation/2.3.x/ScalaHttpFilters);
+[Play documentation](https://www.playframework.com/documentation/2.5.x/ScalaHttpFilters);
 this example shows `GzipFilter` being used to compress each response.
 
 ````
@@ -121,8 +122,9 @@ object Global extends WithFilters(X.playAccessLogger, new GzipFilter) with Globa
 
 Version  | Change
 -------- | ------
-1.1.3  | Now writes signon message to Logger, not `access.log`
-1.1.2  | Updated dependencies, now creates `access.log` if necessary
-1.1.1  | Added proxy support, successfully tested on Heroku
-1.1.0  | Removed dependency on [SecureSocial](http://securesocial.ws/), now supports any authentication mechanism; documented how to integrate with `SecureSocial`
-1.0.0  | Hived from [Cadenza](http://www.micronauticsresearch.com/products/cadenza/index.html), which powers [ScalaCourses.com](http://ScalaCourses.com)
+1.2.2    | Scala 2.11 version is now built against Play 2.5.x instead of 2.3.x, removed most references to SecureSocial
+1.1.3    | Now writes signon message to Logger, not `access.log`
+1.1.2    | Updated dependencies, now creates `access.log` if necessary
+1.1.1    | Added proxy support, successfully tested on Heroku
+1.1.0    | Removed dependency on [SecureSocial](http://securesocial.ws/), now supports any authentication mechanism; documented how to integrate with `SecureSocial`
+1.0.0    | Hived from [Cadenza](http://www.micronauticsresearch.com/products/cadenza/index.html), which powers [ScalaCourses.com](http://ScalaCourses.com)

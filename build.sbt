@@ -1,10 +1,10 @@
 name := """play-access-logger"""
 organization := "com.micronautics"
-version := "1.2.1"
+version := "1.2.2"
 licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
 
-scalaVersion := "2.11.8"
-crossScalaVersions := Seq("2.11.8", "2.12.1")
+scalaVersion := "2.11.11"
+crossScalaVersions := Seq("2.11.11", "2.12.2")
 
 scalacOptions ++=
   scalaVersion {
@@ -42,18 +42,17 @@ resolvers ++= Seq(
 
 libraryDependencies ++= scalaVersion {
   case sv if sv.startsWith("2.12") => // Builds with Scala 2.12.x, Play 2.6.x
-    val playV = "2.6.0-M1"
+    val playV = "2.6.0-RC1"
     Seq(
       "com.typesafe.play" %% "play"         % playV    % Provided,
       "com.typesafe.play" %% "play"         % playV    % Test
     )
 
-  case sv if sv.startsWith("2.11") => // Builds with Scala 2.11.x, Play 2.3.x
-    val playV = "2.3.8"
+  case sv if sv.startsWith("2.11") => // Builds with Scala 2.11.x, Play 2.5.x
+    val playV = "2.5.14"
     Seq(
       "com.typesafe.play" %% "play"         % playV    % Provided,
-      "com.typesafe.play" %% "play"         % playV    % Test,
-      "ws.securesocial"   %% "securesocial" % "3.0-M3" % Test
+      "com.typesafe.play" %% "play"         % playV    % Test
     )
 
   case sv if sv.startsWith("2.10") => // Builds with Scala 2.10.x, Play 2.2.x
