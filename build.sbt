@@ -68,3 +68,5 @@ bintrayOrganization := Some("micronautics")
 bintrayRepository := "play"
 
 publishArtifact in Test := false
+
+ThisBuild / turbo := true
