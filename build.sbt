@@ -37,7 +37,7 @@ scalacOptions in (Compile, doc) ++= baseDirectory.map {
 }.value
 
 resolvers ++= Seq(
-  "Lightbend Releases" at "http://repo.typesafe.com/typesafe/releases"
+  "Lightbend Releases" at "https://repo.typesafe.com/typesafe/releases"
 )
 
 libraryDependencies ++= scalaVersion {
